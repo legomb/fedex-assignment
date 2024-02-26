@@ -1,0 +1,17 @@
+{
+	"sqlfluff.config": "/usr/local/bin/sqlfluff",
+	"sqlfluff.linter.run": "onSave",
+	"sqlfluff.experimental.format.executeInTerminal": true,
+	// "editor.formatOnSave": true,
+	"editor.lineNumbers": "on",
+	"sqltools.useNodeRuntime": true,
+	"sqltools.connections": [
+		{
+			"name": "dev",
+			"accessMode": "Read Only",
+			"previewLimit": 50,
+			"driver": "DuckDB",
+			"databaseFilePath": "./transform/target/dev.duckdb"
+		}
+	],
+}

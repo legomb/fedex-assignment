@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+  - name: dim_date
+    description: Dates dimension
+    # columns:
+    #   - name: id
+    #     description: (Surrogate) primary key for this table
+    #     constraints:
+    #       - type: not_null
+    #       - type: unique

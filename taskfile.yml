@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List tasks (default)
+    cmds:
+      - task -l
+
+  dbt:
+    desc: Runs dbt
+    dir: ./transform
+    cmds:
+      - dbt {{.CLI_ARGS}}
+
+  dbt:deps:
+    desc: Installs dbt dependencies
+    cmds:
+      - task: dbt
+        vars:
+          {CLI_ARGS: "deps"}
+
+  dbt:build:
+    desc: Builds dbt models
+    cmds:
+      - task: dbt
+        vars:
+          {CLI_ARGS: "build"}
+
+  dbt:docs:serve:
+    desc: generates and serves docs
+    cmds:
+      - task: dbt
+        vars:
+          {CLI_ARGS: "docs generate"}
+      - task: dbt
+        vars:
+          {CLI_ARGS: "docs serve"}
+
+  demo:run-full-demo:
+    desc: runs the full demo
+    cmds:
+      - task: dbt:deps
+      - task: dbt:build
+      - task: dbt:docs:serve

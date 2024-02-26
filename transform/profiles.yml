@@ -1,0 +1,7 @@
+fedex:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'target/dev.duckdb'
+      schema: fedex
