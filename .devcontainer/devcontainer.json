@@ -19,7 +19,6 @@
 	// "customizations": {},
 	// pip install dbt-duckdb
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -31,7 +30,8 @@
 				"shd101wyy.markdown-preview-enhanced",
 				"yzhang.markdown-all-in-one",
 				"mechatroner.rainbow-csv",
-				"dorzey.vscode-sqlfluff"
+				"dorzey.vscode-sqlfluff",
+				"esbenp.prettier-vscode"
 			]
 		}
 	}
