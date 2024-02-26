@@ -55,3 +55,25 @@ models:
         description: Company that manufactures the product
       - name: supplier
         description: Company that supplies the product
+
+  - name: dim_stores
+    description: Stores dimension table.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: store_code
+        description: Natural Key. Unique identifier for the store, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        description: Name of the store
+      - name: city
+        description: Name of the city where the customer resides
+      - name: store_address
+        description: Address
+      - name: phone_number
+        description: Primary phone number
