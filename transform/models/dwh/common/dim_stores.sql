@@ -1,9 +1,17 @@
-WITH cte_raw AS (
+{{ config(materialized='external', location='results/dim_stores.csv') }}
+
+WITH cte_clean_stores AS (
 
 	SELECT * FROM {{ ref('clean_stores') }}
 
 )
 
-SELECT *
+SELECT
+	{{ dbt_utils.generate_surrogate_key(['store_code']) }} AS id,
+	store_code,
+	store_name,
+	city,
+	store_address,
+	phone_number
 FROM
-	cte_raw
+	cte_clean_stores

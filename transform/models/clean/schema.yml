@@ -3,13 +3,13 @@ version: 2
 models:
   - name: clean_customers
     description: |
-      Clean, valid, type-casted customers, based on raw_customers.
+      Clean, valid, type-casted customers.
     columns:
-      # - name: id
-      #   description: (Surrogate) primary key for this table
-      #   tests:
-      #     - unique
-      #     - not_null
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
       - name: customer_code
         description: Natural Key. Unique identifier for the customer, as coming from the source system.
         tests:
@@ -26,3 +26,78 @@ models:
         description: Email
       - name: phone_number
         description: Primary phone number
+
+  - name: clean_sales
+    description: |
+      Clean, valid, type-casted sales.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: sales_code
+        description: Natural Key. Unique identifier for the sale, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: product_code
+        description: Product Code
+      - name: customer_code
+        description: Customer Code
+      - name: date
+        description: Date of the sale
+      - name: store_code
+        description: Store Code
+      - name: quantity_sold
+        description: Quantity Sold
+      - name: amount
+        description: Amount sold, in Euros
+
+  - name: clean_stores
+    description: |
+      Clean, valid, type-casted stores.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: store_code
+        description: Natural Key. Unique identifier for the store, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        description: Name of the store
+      - name: city
+        description: Name of the city where the customer resides
+      - name: store_address
+        description: Address
+      - name: phone_number
+        description: Primary phone number
+
+  - name: clean_products
+    description: |
+      Clean, valid, type-casted products.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: product_code
+        description: Natural Key. Unique identifier for the product, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: Name of the product
+      - name: style
+        description: Style of the product
+      - name: category
+        description: Product category
+      - name: manufacturer
+        description: Company that manufactures the product
+      - name: supplier
+        description: Company that supplies the product

@@ -7,12 +7,12 @@ WITH cte_sales_raw AS (
 )
 
 SELECT
-	-- {{ dbt_utils.generate_surrogate_key(['ID']) }} AS id,
-	"ID" AS sales_code, -- noqa: RF05
-	"ProductID" AS product_code, -- noqa: RF05
-	"CustomerID" AS customer_code, -- noqa: RF05: RF06
-	CAST("Date" AS DATE) AS date, -- noqa
-	"StoreID" AS store_code,
-	CAST("QuantitySold" AS INT) AS quantity_sold,
+	{{ dbt_utils.generate_surrogate_key(["ID"]) }}::VARCHAR AS id,
+	"ID"::VARCHAR AS sales_code,
+	"ProductID"::VARCHAR AS product_code,
+	"CustomerID"::VARCHAR AS customer_code,
+	"Date"::DATE AS date,
+	"StoreID"::VARCHAR AS store_code,
+	"QuantitySold"::INT AS quantity_sold,
 	"Amount" AS amount
 FROM cte_sales_raw

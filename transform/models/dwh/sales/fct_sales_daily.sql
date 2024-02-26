@@ -8,7 +8,6 @@ WITH cte_sales_raw AS (
 
 SELECT
 	{{ dbt_utils.generate_surrogate_key(['sales_code']) }} AS id,
-	-- {{ dbt_utils.generate_surrogate_key(['city']) }} AS city_id,
 	{{ dbt_utils.generate_surrogate_key(['product_code']) }} AS product_id,
 	{{ dbt_utils.generate_surrogate_key(['customer_code']) }} AS customer_id,
 	{{ dbt_utils.generate_surrogate_key(['store_code']) }} AS store_id,

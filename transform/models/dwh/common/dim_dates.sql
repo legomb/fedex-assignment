@@ -29,18 +29,18 @@ dates_derived AS (
 		DATE_PART('day', date_day) AS day_of_month,
 		DAYNAME(date_day) AS day_name,
 		MONTHNAME(date_day) AS month_name,
-		DATE_PART('month', date_day) AS month,
+		DATE_PART('month', date_day) AS month_number,
 		LPAD(
 			CAST(DATE_PART('month', date_day) AS VARCHAR), 2, '0'
 		) AS month_with_leading_zero,
-		DATE_PART('quarter', date_day) AS quarter,
-		DATE_PART('year', date_day) AS year,
+		DATE_PART('quarter', date_day) AS quarter_number,
+		DATE_PART('year', date_day) AS year_number,
 		DATE_PART('dayofyear', date_day) AS day_of_year,
-		DATE_PART('week', date_day) AS week,
-		DATE_PART('weekday', date_day) AS weekday,
-		DATE_PART('hour', date_day) AS hour,
-		DATE_PART('minute', date_day) AS minute,
-		DATE_PART('second', date_day) AS second,
+		DATE_PART('week', date_day) AS week_number,
+		DATE_PART('weekday', date_day) AS weekday_number,
+		DATE_PART('hour', date_day) AS hour_number,
+		DATE_PART('minute', date_day) AS minute_number,
+		DATE_PART('second', date_day) AS second_number,
 		CASE
 			WHEN MONTH(date_day) IN (1, 2, 3) THEN 'Winter'
 			WHEN MONTH(date_day) IN (3, 4, 5) THEN 'Spring'

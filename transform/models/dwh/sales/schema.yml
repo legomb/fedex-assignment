@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_sales_daily
+    description: Fact table for daily sales
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        constraints:
+          - type: not_null
+          - type: unique
+      - name: product_id
+        description: Product dimension ID
+      - name: customer_id
+        description: Customer dimension ID
+      - name: store_id
+        description: Store dimension ID
+      - name: date_id
+        description: Date dimension ID
+      - name: sales_code
+        description: Original ID for the sale record as coming from the source system
+      - name: quantity_sold
+        description: Number of items sold
+      - name: amount
+        description: Amount, in Euros

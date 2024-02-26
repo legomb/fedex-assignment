@@ -5,6 +5,7 @@ WITH cte_raw AS (
 )
 
 SELECT
+	{{ dbt_utils.generate_surrogate_key(["ID"]) }}::VARCHAR AS id,
 	"ID"::VARCHAR AS customer_code,
 	"Name"::VARCHAR AS customer_name,
 	"City"::VARCHAR AS city,

@@ -9,6 +9,7 @@ models:
         constraints:
           - type: not_null
           - type: unique
+
   - name: dim_customers
     description: Customers dimension.
     columns:
@@ -30,3 +31,27 @@ models:
         description: Email
       - name: phone_number
         description: Primary phone number
+
+  - name: dim_products
+    description: Products dimension table.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: product_code
+        description: Natural Key. Unique identifier for the product, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: Name of the product
+      - name: style
+        description: Style of the product
+      - name: category
+        description: Product category
+      - name: manufacturer
+        description: Company that manufactures the product
+      - name: supplier
+        description: Company that supplies the product

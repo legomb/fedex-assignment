@@ -1,4 +1,4 @@
-id,date_dateformat,ansi_date,day_of_month,day_name,month_name,month,month_with_leading_zero,quarter,year,day_of_year,week,weekday,hour,minute,second,season_northern_hemisphere,season_southern_hemisphere
+id,date_dateformat,ansi_date,day_of_month,day_name,month_name,month_number,month_with_leading_zero,quarter_number,year_number,day_of_year,week_number,weekday_number,hour_number,minute_number,second_number,season_northern_hemisphere,season_southern_hemisphere
 19700101,1970-01-01 00:00:00,19700101,1,Thursday,January,1,01,1,1970,1,1,4,0,0,0,Winter,Summer
 19700102,1970-01-02 00:00:00,19700102,2,Friday,January,1,01,1,1970,2,1,5,0,0,0,Winter,Summer
 19700103,1970-01-03 00:00:00,19700103,3,Saturday,January,1,01,1,1970,3,1,6,0,0,0,Winter,Summer
