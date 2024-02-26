@@ -13,16 +13,26 @@ dates_raw AS (
 
 dates_derived AS (
 	SELECT
-		date_day AS date,
+		CAST(
+			CONCAT(
+				LPAD(CAST(DATE_PART('year', date_day) AS VARCHAR), 4, '0'),
+				LPAD(CAST(DATE_PART('month', date_day) AS VARCHAR), 2, '0'),
+				LPAD(CAST(DATE_PART('day', date_day) AS VARCHAR), 2, '0')
+			) AS INT
+		) AS id,
+		date_day AS date_dateformat,
 		CONCAT(
-			DATE_PART('year', date_day),
-			DATE_PART('month', date_day),
-			DATE_PART('day', date_day)
+			LPAD(CAST(DATE_PART('year', date_day) AS VARCHAR), 4, '0'),
+			LPAD(CAST(DATE_PART('month', date_day) AS VARCHAR), 2, '0'),
+			LPAD(CAST(DATE_PART('day', date_day) AS VARCHAR), 2, '0')
 		) AS ansi_date,
 		DATE_PART('day', date_day) AS day_of_month,
 		DAYNAME(date_day) AS day_name,
 		MONTHNAME(date_day) AS month_name,
 		DATE_PART('month', date_day) AS month,
+		LPAD(
+			CAST(DATE_PART('month', date_day) AS VARCHAR), 2, '0'
+		) AS month_with_leading_zero,
 		DATE_PART('quarter', date_day) AS quarter,
 		DATE_PART('year', date_day) AS year,
 		DATE_PART('dayofyear', date_day) AS day_of_year,

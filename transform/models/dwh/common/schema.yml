@@ -1,12 +1,32 @@
-
 version: 2
 
 models:
   - name: dim_date
     description: Dates dimension
-    # columns:
-    #   - name: id
-    #     description: (Surrogate) primary key for this table
-    #     constraints:
-    #       - type: not_null
-    #       - type: unique
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        constraints:
+          - type: not_null
+          - type: unique
+  - name: dim_customers
+    description: Customers dimension.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: customer_code
+        description: Natural Key. Unique identifier for the customer, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Name of the customer
+      - name: city
+        description: Name of the city where the customer resides
+      - name: email
+        description: Email
+      - name: phone_number
+        description: Primary phone number

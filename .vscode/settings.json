@@ -1,5 +1,6 @@
 {
   "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
+  "sqlfluff.executablePath": "sqlfluff",
   "sqlfluff.linter.run": "onSave",
   "sqlfluff.experimental.format.executeInTerminal": true,
   "editor.formatOnSave": true,

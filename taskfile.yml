@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -16,25 +16,22 @@ tasks:
     desc: Installs dbt dependencies
     cmds:
       - task: dbt
-        vars:
-          {CLI_ARGS: "deps"}
+        vars: { CLI_ARGS: "deps" }
 
   dbt:build:
     desc: Builds dbt models
     cmds:
+      - rm transform/target/dev.duckdb
       - task: dbt
-        vars:
-          {CLI_ARGS: "build"}
+        vars: { CLI_ARGS: "build" }
 
   dbt:docs:serve:
     desc: generates and serves docs
     cmds:
       - task: dbt
-        vars:
-          {CLI_ARGS: "docs generate"}
+        vars: { CLI_ARGS: "docs generate" }
       - task: dbt
-        vars:
-          {CLI_ARGS: "docs serve"}
+        vars: { CLI_ARGS: "docs serve" }
 
   demo:run-full-demo:
     desc: runs the full demo

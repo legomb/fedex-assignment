@@ -1,39 +1,28 @@
-
 version: 2
 
 models:
-  - name: trade_report_clean
+  - name: clean_customers
     description: |
-      Simplified format of the execution reports that we receive. Each line in the file represents a message from the exchange.
+      Clean, valid, type-casted customers, based on raw_customers.
     columns:
       # - name: id
       #   description: (Surrogate) primary key for this table
       #   tests:
       #     - unique
       #     - not_null
-      - name: trade_code
-        description: this indicates the unique identifier for the trade, as coming from the source trade system.
+      - name: customer_code
+        description: Natural Key. Unique identifier for the customer, as coming from the source system.
         tests:
+          - unique
           - not_null
-      - name: trade_report_type_code
-        description: Either New or Cancel
-        tests:
           - accepted_values:
-              name: trade_report_type_expected_values
-              values: ['New', 'Cancel']
-      - name: equity_code
-        description: this code indicates what equity is being traded (for example, UNA indicates Unilever, RDSA indicates Royal Dutch Shell)
-      - name: price
-        description: decimal field indicating the price per share of the trade (in Euros).
-      - name: size
-        description: number of shares exchanged in the trade.
-      - name: side_code
-        description: |
-          B for Buy or S for Sell.
-          (Every trade has two sides:  the Buy side, which represents the participant buying the equity, and the Sell side, indicating the participant selling the equity.)
-        tests:
-          - accepted_values:
-              name: side_expected_values
-              values: ['B', 'S']
-      - name: participant_code
-        description: the ID of the firm who is doing this side of the trade.
+              name: customer_code_expected_values
+              values: ["1", "2", "3", "4", "5"]
+      - name: customer_name
+        description: Name of the customer
+      - name: city
+        description: Name of the city where the customer resides
+      - name: email
+        description: Email
+      - name: phone_number
+        description: Primary phone number
