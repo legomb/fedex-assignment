@@ -3,6 +3,8 @@ version: "3.7"
 services:
 
   cube:
+    container_name: fedex_cube
+    hostname: fedex_cube
     image: cubejs/cube:latest
     ports:
       - 4000:4000
@@ -24,6 +26,8 @@ services:
       # - ./db:/cube/db
 
   superset:
+    container_name: fedex_superset
+    hostname: fedex_superset
     build:
       context: .
       dockerfile: ./superset/Dockerfile
