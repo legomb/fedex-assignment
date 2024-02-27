@@ -1,5 +1,3 @@
-{{ config(materialized='external', location='results/dim_products.csv') }}
-
 WITH cte_clean_products AS (
 
 	SELECT * FROM {{ ref('clean_products') }}

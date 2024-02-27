@@ -1,5 +1,3 @@
-{{ config(materialized='external', location='results/fct_sales.csv') }}
-
 WITH cte_sales_raw AS (
 
 	SELECT * FROM {{ ref('clean_sales') }}
