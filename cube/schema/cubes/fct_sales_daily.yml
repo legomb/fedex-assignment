@@ -36,9 +36,13 @@ cubes:
         sql: store_id
         type: string
 
-      # - name: sales_code
-      #   sql: sales_code
-      #   type: string
+      - name: sales_code
+        sql: sales_code
+        type: string
+
+      - name: created_timestamp
+        sql: created_timestamp
+        type: time
 
     measures:
       - name: count
@@ -58,3 +62,16 @@ cubes:
     pre_aggregations:
       # Pre-aggregation definitions go here.
       # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+      # - name: number_of_sales_by_season_northern_hemisphere
+      #   dimensions:
+      #     - CUBE.status
+      #   measures:
+      #     - CUBE.count
+
+      - name: amt_of_sales_by_season_northern_hemisphere
+        dimensions:
+          - dim_dates.season_northern_hemisphere
+        measures:
+          - CUBE.amount
+        # time_dimension: CUBE.created_at
+        # granularity: day

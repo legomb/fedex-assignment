@@ -27,7 +27,8 @@ services:
       - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/conf/dev.duckdb
     volumes:
       - ./cube/tmp:/cube/conf
-      # - ./db:/cube/db
+      - ./cube/schema:/cube/conf/schema
+      - ./transform/target/dev.duckdb:/cube/conf/dev.duckdb
 
   superset:
     container_name: fedex_superset
