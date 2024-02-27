@@ -2,6 +2,16 @@ version: "3.7"
 
 services:
 
+  devcontainer:
+    container_name: fedex_devcontainer
+    hostname: fedex_devcontainer
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+    volumes:
+      - ..:/workspaces:cached
+    command: sleep infinity
+
   cube:
     container_name: fedex_cube
     hostname: fedex_cube
@@ -15,12 +25,6 @@ services:
       # - CUBEJS_DB_DUCKDB_SCHEMA=fedex_dwh_common
       - CUBEJS_DB_TYPE=duckdb
       - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/conf/dev.duckdb
-
-      # - CUBEJS_DB_TYPE=hive
-      # - CUBEJS_DB_HOST=my.hive.host
-      # - CUBEJS_DB_NAME=my_hive_database
-      # - CUBEJS_DB_USER=hive_user
-      # - CUBEJS_DB_PASS=**********
     volumes:
       - ./cube/tmp:/cube/conf
       # - ./db:/cube/db
@@ -32,8 +36,12 @@ services:
       context: .
       dockerfile: ./superset/Dockerfile
       args:
-        POSTGRES_USER: $POSTGRES_USER
-        POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+        POSTGRES_USER: $CUBE_POSTGRES_USER
+        POSTGRES_PASSWORD: $CUBE_POSTGRES_PASSWORD
+        POSTGRES_HOST: $CUBE_POSTGRES_HOST
+        POSTGRES_DB: $CUBE_POSTGRES_DB
+        POSTGRES_PORT: $CUBE_POSTGRES_PORT
+        POSTGRES_CONN_NAME: $CUBE_POSTGRES_CONN_NAME
         SUPERSET_ADMIN: $SUPERSET_ADMIN
         SUPERSET_PASSWORD: $SUPERSET_PASSWORD
         SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}

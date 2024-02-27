@@ -3,18 +3,21 @@
 {
 	"name": "Fedex Assessment dev container",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:0-3.11",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers-contrib/features/go-task:1": {}
+		"ghcr.io/devcontainers-contrib/features/go-task:1": {},
+		"java": "8"
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install --upgrade pip && pip3 install dbt-duckdb sqlfluff sqlfluff-templater-dbt",
+	// "postCreateCommand": "pip install --upgrade pip && pip3 install dbt-duckdb sqlfluff sqlfluff-templater-dbt",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// pip install dbt-duckdb
@@ -31,7 +34,8 @@
 				"yzhang.markdown-all-in-one",
 				"mechatroner.rainbow-csv",
 				"dorzey.vscode-sqlfluff",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}
