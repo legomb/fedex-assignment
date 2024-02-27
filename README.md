@@ -6,13 +6,10 @@ This is my submission for the FedEx assignment for Analytics Engineering.
 
 Quick reference:
 
-- `transform/models`: Data models.
-- `transform/results`: Results of the application as .csv files.
-
-### Naming conventions for data models
-
-- natural key columns are suffixed as `code`
-- surrogate key columns are suffixed as `id`
+- `transform/models`: Data transformation models (dbt).
+- `cube/schema`: Semantic Layer models, to be used by BI dashboard apps (Cube.dev)
+- `superset`: Superset (BI dashboards)
+- `docker-compose.yml`: Local environment definition.
 
 ## Running the demo
 
