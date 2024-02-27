@@ -2,6 +2,7 @@ cubes:
   - name: dim_stores
     sql_table: fedex_dwh_common.dim_stores
     data_source: default
+    title: Stores (dim_stores)
 
     joins: []
 

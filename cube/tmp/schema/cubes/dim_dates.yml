@@ -2,6 +2,7 @@ cubes:
   - name: dim_dates
     sql_table: fedex_dwh_common.dim_dates
     data_source: default
+    title: Dates (dim_dates)
 
     joins: []
 
