@@ -26,16 +26,8 @@ To run this demo:
 task demo:run-full-demo
 ```
 
-To see an overview of the data assets:
+Then:
 
-1. Access the data catalog (dbt docs) by navigating to [http://localhost:8080](http://localhost:8080) from your browser
-
-To use Cube:
-
-http://localhost:4000/
-
-To use Superset:
-
-http://localhost:8080/login/
-
-admin, admin
+- To view and manage BI dashboards, open the local [Superset](https://superset.apache.org/) instance by navigating to [http://localhost:8080/login/](http://localhost:8080/login/) and log in with `admin`, `admin`.
+- To see an overview of the data transformation models and their metadata & lineage, access the local [dbt docs](https://docs.getdbt.com/docs/collaborate/documentation) instance by navigating to [http://localhost:8080](http://localhost:8080) from your browser.
+- To view and manage the semantic model data cubes and views, open the local [cube.dev](https://cube.dev/) instance by navigating to [http://localhost:4000/](http://localhost:4000/).
