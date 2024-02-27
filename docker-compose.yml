@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+
+  cube:
+    image: cubejs/cube:latest
+    ports:
+      - 4000:4000
+      - 15432:15432
+      - 3306:3306
+    environment:
+      - CUBEJS_DEV_MODE=true
+      # - CUBEJS_DB_DUCKDB_SCHEMA=fedex_dwh_common
+      - CUBEJS_DB_TYPE=duckdb
+      - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/conf/dev.duckdb
+
+      # - CUBEJS_DB_TYPE=hive
+      # - CUBEJS_DB_HOST=my.hive.host
+      # - CUBEJS_DB_NAME=my_hive_database
+      # - CUBEJS_DB_USER=hive_user
+      # - CUBEJS_DB_PASS=**********
+    volumes:
+      - ./cube/tmp:/cube/conf
+      # - ./db:/cube/db
+
+  superset:
+    build:
+      context: .
+      dockerfile: ./superset/Dockerfile
+      args:
+        POSTGRES_USER: $POSTGRES_USER
+        POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+        SUPERSET_ADMIN: $SUPERSET_ADMIN
+        SUPERSET_PASSWORD: $SUPERSET_PASSWORD
+        SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+    environment:
+      # SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_SECRET_KEY: eWHia+Y946gdirR4TN+ZF1iTYHK9QNJwHSb87wIE+oyuOWQTkANCRyFJ
+    ports:
+      - "8088:8088"
+    command: gunicorn --bind  "0.0.0.0:8088" --access-logfile '-' --error-logfile '-' --workers 1 --worker-class gthread --threads 20 --timeout 60 --limit-request-line 0 --limit-request-field_size 0 "superset.app:create_app()"
+    volumes:
+      - ./transform/target:/app/superset_home/db

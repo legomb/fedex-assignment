@@ -1,0 +1,81 @@
+cubes:
+  - name: dim_dates
+    sql_table: fedex_dwh_common.dim_dates
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: ansi_date
+        sql: ansi_date
+        type: string
+
+      - name: day_name
+        sql: day_name
+        type: string
+
+      - name: month_name
+        sql: month_name
+        type: string
+
+      - name: month_with_leading_zero
+        sql: month_with_leading_zero
+        type: string
+
+      - name: season_northern_hemisphere
+        sql: season_northern_hemisphere
+        type: string
+
+      - name: season_southern_hemisphere
+        sql: season_southern_hemisphere
+        type: string
+
+      - name: date_dateformat
+        sql: date_dateformat
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+      - name: month_number
+        sql: month_number
+        type: sum
+
+      - name: quarter_number
+        sql: quarter_number
+        type: sum
+
+      - name: year_number
+        sql: year_number
+        type: sum
+
+      - name: week_number
+        sql: week_number
+        type: sum
+
+      - name: weekday_number
+        sql: weekday_number
+        type: sum
+
+      - name: hour_number
+        sql: hour_number
+        type: sum
+
+      - name: minute_number
+        sql: minute_number
+        type: sum
+
+      - name: second_number
+        sql: second_number
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

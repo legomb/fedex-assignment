@@ -1,0 +1,41 @@
+cubes:
+  - name: fct_sales_daily
+    sql_table: fedex_dwh_sales.fct_sales_daily
+    data_source: default
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        primary_key: true
+
+      - name: product_id
+        sql: product_id
+        type: string
+
+      - name: customer_id
+        sql: customer_id
+        type: string
+
+      - name: store_id
+        sql: store_id
+        type: string
+
+      - name: sales_code
+        sql: sales_code
+        type: string
+
+      - name: amount
+        sql: amount
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+
