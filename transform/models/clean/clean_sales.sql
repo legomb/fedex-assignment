@@ -12,5 +12,5 @@ SELECT
 	"Date"::DATE AS date,
 	"StoreID"::VARCHAR AS store_code,
 	"QuantitySold"::INT AS quantity_sold,
-	"Amount" AS amount
+	"Amount"::DECIMAL(19, 4) AS amount
 FROM cte_sales_raw
