@@ -4,17 +4,19 @@
 # You can learn more about views in documentation here - https://cube.dev/docs/schema/reference/view
 
 views:
-  - name: sales_view
+  - name: Sales_view
+    title: Sales
 
     cubes:
-      - join_path: fct_sales_daily
+      - join_path: fct_sales_detail
         includes:
           - sales_code
-          - created_timestamp
+          - date
           - amount
           - count
+          - average_amount
      
-      - join_path: fct_sales_daily.dim_customers
+      - join_path: fct_sales_detail.dim_customers
         # prefix: true
         includes:
           - customer_code
@@ -23,14 +25,14 @@ views:
           - email
           # - phone_number
 
-      - join_path: fct_sales_daily.dim_dates
+      - join_path: fct_sales_detail.dim_dates
         # prefix: true
         includes:
           - date_dateformat
           - season_northern_hemisphere
           - season_southern_hemisphere
 
-      - join_path: fct_sales_daily.dim_products
+      - join_path: fct_sales_detail.dim_products
         # prefix: true
         includes:
           - product_code
@@ -40,7 +42,7 @@ views:
           - manufacturer
           - supplier
 
-      - join_path: fct_sales_daily.dim_stores
+      - join_path: fct_sales_detail.dim_stores
         # prefix: true
         includes:
           - store_code

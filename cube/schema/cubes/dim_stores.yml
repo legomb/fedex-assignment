@@ -2,7 +2,7 @@ cubes:
   - name: dim_stores
     sql_table: fedex_dwh_common.dim_stores
     data_source: default
-    title: Stores (dim_stores)
+    title: Stores
 
     joins: []
 
@@ -35,6 +35,10 @@ cubes:
     measures:
       - name: count
         type: count
+
+    segments:
+      - name: sf_stores
+        sql: "{CUBE}.city = 'City4'"
 
     pre_aggregations:
       # Pre-aggregation definitions go here.

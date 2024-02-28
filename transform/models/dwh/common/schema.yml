@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_date
+  - name: dim_dates
     description: Dates dimension
     columns:
       - name: id
@@ -9,6 +9,12 @@ models:
         constraints:
           - type: not_null
           - type: unique
+      - name: date_week
+        description: Date truncated to the first day of the week for this day
+      - name: date_month
+        description: Date truncated to the first day of the month for this day
+      - name: date_year
+        description: Date truncated to the first day of the year for this day
 
   - name: dim_customers
     description: Customers dimension.

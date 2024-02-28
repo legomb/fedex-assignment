@@ -31,6 +31,9 @@ dates_derived AS (
 		LPAD(
 			CAST(DATE_PART('month', date_day) AS VARCHAR), 2, '0'
 		) AS month_with_leading_zero,
+		{{ date_trunc("week", "date_day") }} AS date_week,
+		{{ date_trunc("month", "date_day") }} AS date_month,
+		{{ date_trunc("year", "date_day") }} AS date_year,
 		DATE_PART('quarter', date_day) AS quarter_number,
 		DATE_PART('year', date_day) AS year_number,
 		DATE_PART('dayofyear', date_day) AS day_of_year,
