@@ -151,3 +151,8 @@ models:
       - name: b2b
       - name: fulfilled_by
       - name: unnamed_22
+        description: |
+          TBD.
+          Mystery column! We do know that it is a boolean.
+          Please refer to the data owner until this is resolved.
+          If you know what it is, please get in touch with the Data Analytics team!
