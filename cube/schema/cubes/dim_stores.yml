@@ -36,10 +36,6 @@ cubes:
       - name: count
         type: count
 
-    segments:
-      - name: sf_stores
-        sql: "{CUBE}.city = 'City4'"
-
     pre_aggregations:
       # Pre-aggregation definitions go here.
       # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
