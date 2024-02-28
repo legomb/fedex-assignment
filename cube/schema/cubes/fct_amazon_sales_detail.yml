@@ -1,0 +1,122 @@
+cubes:
+  - name: fct_amazon_popular_styles_categories_per_city
+    sql_table: fedex_dwh_sales.fct_amazon_popular_styles_categories_per_city
+    data_source: default
+    title: Sales (Amazon)
+
+    joins:
+      - name: dim_dates
+        relationship: many_to_one
+        sql: "{fct_amazon_popular_styles_categories_per_city}.date_id = {dim_dates.id}"
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        primary_key: true
+
+      - name: date_id
+        sql: date_id
+        type: string
+
+      - name: line_item_code
+        sql: line_item_code
+        type: string
+
+      - name: order_code
+        sql: order_code
+        type: string
+
+      - name: date
+        sql: date
+        type: time
+
+      - name: status
+        sql: status
+        type: string
+
+      - name: fulfillment
+        sql: fulfillment
+        type: string
+
+      - name: sales_channel
+        sql: sales_channel
+        type: string
+
+      - name: ship_service_level
+        sql: ship_service_level
+        type: string
+
+      - name: style
+        sql: style
+        type: string
+
+      - name: sku
+        sql: sku
+        type: string
+
+      - name: category
+        sql: category
+        type: string
+
+      - name: size
+        sql: size
+        type: string
+
+      - name: asin
+        sql: asin
+        type: string
+
+      - name: courier_status
+        sql: courier_status
+        type: string
+
+      - name: currency
+        sql: currency
+        type: string
+
+      - name: ship_city
+        sql: ship_city
+        type: string
+
+      - name: ship_state
+        sql: ship_state
+        type: string
+
+      - name: ship_postal_code
+        sql: ship_postal_code
+        type: string
+
+      - name: ship_country
+        sql: ship_country
+        type: string
+
+      - name: promotion_ids
+        sql: promotion_ids
+        type: string
+
+      - name: b2b
+        sql: b2b
+        type: string
+
+      - name: fulfilled_by
+        sql: fulfilled_by
+        type: string
+
+      - name: unnamed_22
+        sql: unnamed_22
+        type: string
+
+    measures:
+      - name: count
+        description: count of all line item sales
+        type: count
+
+      - name: amount
+        sql: amount
+        description: amt sum of all sales
+        type: sum
+
+      - name: quantity
+        sql: quantity
+        type: number
