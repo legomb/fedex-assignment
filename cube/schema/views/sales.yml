@@ -4,11 +4,11 @@
 # You can learn more about views in documentation here - https://cube.dev/docs/schema/reference/view
 
 views:
-  - name: amazon_sales_view
-    title: Amazon Sales
+  - name: sales_view
+    title: Sales
 
     cubes:
-      - join_path: fct_amazon_sales_line_items
+      - join_path: fct_sales_line_items
         includes:
           - line_item_code
           - order_code
@@ -36,14 +36,14 @@ views:
           - count
           - quantity
      
-      - join_path: fct_amazon_sales_line_items.dim_dates
+      - join_path: fct_sales_line_items.dim_dates
         # prefix: true
         includes:
           - date_dateformat
           - season_northern_hemisphere
           - season_southern_hemisphere
 
-      - join_path: fct_amazon_sales_line_items.dim_postcodes
+      - join_path: fct_sales_line_items.dim_postcodes
         # prefix: true
         includes:
           - country

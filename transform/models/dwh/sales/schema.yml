@@ -2,8 +2,8 @@ version: 2
 
 models:
 
-  - name: fct_amazon_sales_line_items
-    description: Clean, valid, type-casted Amazon Sale line items.
+  - name: fct_sales_line_items
+    description: Fact table for Amazon sales, per line item.
     columns:
       - name: id
         description: (Surrogate) primary key for this table
@@ -46,7 +46,7 @@ models:
           Please refer to the data owner until this is resolved.
           If you know what it is, please get in touch with the Data Analytics team!
 
-  - name: fct_amazon_popular_styles_categories_per_city
+  - name: fct_popular_styles_categories_per_city
     description: |
       Snapshot Fact Table for popular product styles and categories per city, based on sales amount
     columns:

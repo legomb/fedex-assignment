@@ -1,6 +1,6 @@
 WITH cte_clean_sales AS (
 
-	SELECT * FROM {{ ref('clean_amazon_sales_line_items') }}
+	SELECT * FROM {{ ref('clean_sales_line_items') }}
 
 ),
 

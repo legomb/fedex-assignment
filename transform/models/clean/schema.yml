@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: clean_amazon_sales_line_items
+  - name: clean_sales_line_items
     description: Clean, valid, type-casted Amazon Sale line items.
     columns:
       - name: id
