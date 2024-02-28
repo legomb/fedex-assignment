@@ -1,5 +1,3 @@
-{{ config(materialized='external', location='results/fct_popular_styles_categories_per_city.csv') }}
-
 WITH cte_clean_sales AS (
 
 	SELECT * FROM {{ ref('clean_sales') }}
