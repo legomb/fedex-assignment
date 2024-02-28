@@ -1,4 +1,4 @@
-WITH cte_sales_raw AS (
+WITH cte_clean_sales AS (
 
 	SELECT * FROM {{ ref('clean_sales') }}
 
@@ -21,4 +21,4 @@ SELECT
 	quantity_sold,
 	amount
 FROM
-	cte_sales_raw
+	cte_clean_sales

@@ -1,4 +1,4 @@
-WITH cte_sales_raw AS (
+WITH cte_clean_sales AS (
 
 	SELECT * FROM {{ ref('clean_sales') }}
 
@@ -26,7 +26,7 @@ SELECT
 	SUM(amount) AS amount_total,
 	AVG(amount) AS amount_avg
 FROM
-	cte_sales_raw
+	cte_clean_sales
 GROUP BY
 	CAST(created_timestamp AS DATE),
 	product_code,
