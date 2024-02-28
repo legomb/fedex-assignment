@@ -48,3 +48,27 @@ models:
         description: Number of items sold
       - name: amount
         description: Amount, in Euros
+
+  - name: fct_popular_styles_categories_per_city
+    description: |
+      Snapshot Fact Table for popular product styles and categories per city, based on sales amount
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        constraints:
+          - type: not_null
+          - type: unique
+      - name: snapshot_timestamp
+        description: date and time of the sale, to the millisecond
+      - name: date_id
+        description: Date dimension ID
+      - name: city
+        description: Name of the city
+      - name: top_style
+        description: Name of the most popular product style in this city
+      - name: top_style_amount
+        description: Sales amount for the style in this city
+      - name: top_category
+        description: Name of the most popular product category in this city
+      - name: top_category_amount
+        description: Sales amount for the category in this city

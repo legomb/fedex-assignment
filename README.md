@@ -29,7 +29,7 @@ Then:
 - To see an overview of the data transformation models and their metadata & lineage, access the local [dbt docs](https://docs.getdbt.com/docs/collaborate/documentation) instance by navigating to [http://localhost:8080](http://localhost:8080) from your browser.
 - To view and manage the semantic model data cubes and views, open the local [cube.dev](https://cube.dev/) instance by navigating to [http://localhost:4000/](http://localhost:4000/).
 
-### Requirements
+## Requirements
 
 These are the questions we want to be able to address:
 
