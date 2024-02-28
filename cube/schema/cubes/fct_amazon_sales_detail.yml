@@ -1,13 +1,13 @@
 cubes:
-  - name: fct_amazon_popular_styles_categories_per_city
-    sql_table: fedex_dwh_sales.fct_amazon_popular_styles_categories_per_city
+  - name: fct_amazon_sales_line_items
+    sql_table: fedex_dwh_sales.fct_amazon_sales_line_items
     data_source: default
     title: Sales (Amazon)
 
     joins:
       - name: dim_dates
         relationship: many_to_one
-        sql: "{fct_amazon_popular_styles_categories_per_city}.date_id = {dim_dates.id}"
+        sql: "{fct_amazon_sales_line_items}.date_id = {dim_dates.id}"
 
     dimensions:
       - name: id

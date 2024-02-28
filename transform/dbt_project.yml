@@ -41,7 +41,8 @@ models:
       +materialized: table
       +schema: staging
     clean:
-      +materialized: view
+      # +materialized: view
+      +materialized: table
       +schema: clean
     dwh:
       common:

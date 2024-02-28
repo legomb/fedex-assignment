@@ -2,24 +2,22 @@ cubes:
   - name: fct_amazon_popular_styles_categories_per_city
     sql_table: fedex_dwh_sales.fct_amazon_popular_styles_categories_per_city
     data_source: default
-    title: Popular Product Styles and Categories Per City (Amazon)
+    title: Popular Amazon Product Styles and Categories Per City
 
     joins:
       - name: dim_dates
         relationship: many_to_one
         sql: "{fct_amazon_popular_styles_categories_per_city}.date_id = {dim_dates.id}"
-      - name: dim_products
-        relationship: many_to_one
-        sql: "{fct_amazon_popular_styles_categories_per_city}.product_id = {dim_products.id}"
-      - name: dim_stores
-        relationship: many_to_one
-        sql: "{fct_amazon_popular_styles_categories_per_city}.store_id = {dim_stores.id}"
 
     dimensions:
       - name: id
         sql: id
         type: string
         primary_key: true
+
+      - name: date_id
+        sql: date_id
+        type: string
 
       - name: date
         sql: snapshot_timestamp
