@@ -10,6 +10,7 @@ Quick reference:
 - `cube/schema`: Semantic Layer models, to be used by BI dashboard apps (Cube.dev)
 - `superset`: Superset (BI dashboards)
 - `docker-compose.yml`: Local environment definition.
+- `pyspark_sample/popular_styles_per_city.py`: This is how the `transform/models/dwh/sales/fct_amazon_popular_styles_categories_per_city.sql` dbt model would look in pyspark. Due to time constraints, this is a non-working, untested sample.
 
 ## Running the demo
 
