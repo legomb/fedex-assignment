@@ -1,0 +1,52 @@
+# In Cube, views are used to expose slices of your data graph and act as data marts.
+# You can control which measures and dimensions are exposed to BIs or data apps, 
+# as well as the direction of joins between the exposed cubes.
+# You can learn more about views in documentation here - https://cube.dev/docs/schema/reference/view
+
+views:
+  - name: amazon_sales_view
+    title: Amazon Sales
+
+    cubes:
+      - join_path: fct_amazon_sales_line_items
+        includes:
+          - line_item_code
+          - order_code
+          - date
+          - status
+          - fulfillment
+          - sales_channel
+          - ship_service_level
+          - style
+          - sku
+          - category
+          - size
+          - asin
+          - courier_status
+          - currency
+          # - ship_city
+          # - ship_state
+          # - ship_postal_code
+          # - ship_country
+          - promotion_ids
+          - b2b
+          - fulfilled_by
+          - unnamed_22
+          - amount
+          - count
+          - quantity
+     
+      - join_path: fct_amazon_sales_line_items.dim_dates
+        # prefix: true
+        includes:
+          - date_dateformat
+          - season_northern_hemisphere
+          - season_southern_hemisphere
+
+      - join_path: fct_amazon_sales_line_items.dim_postcodes
+        # prefix: true
+        includes:
+          - country
+          - state
+          - city
+          - postal_code
