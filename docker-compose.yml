@@ -1,0 +1,55 @@
+version: "3.7"
+
+services:
+
+  devcontainer:
+    container_name: fedex_devcontainer
+    hostname: fedex_devcontainer
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+    volumes:
+      - ..:/workspaces:cached
+    command: sleep infinity
+
+  cube:
+    container_name: fedex_cube
+    hostname: fedex_cube
+    image: cubejs/cube:latest
+    ports:
+      - 4000:4000
+      - 15432:15432
+      - 3306:3306
+    environment:
+      - CUBEJS_DEV_MODE=true
+      # - CUBEJS_DB_DUCKDB_SCHEMA=fedex_dwh_common
+      - CUBEJS_DB_TYPE=duckdb
+      - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/conf/dev.duckdb
+    volumes:
+      - ./cube/tmp:/cube/conf
+      - ./cube/schema:/cube/conf/schema
+      - ./transform/target/dev.duckdb:/cube/conf/dev.duckdb
+
+  superset:
+    container_name: fedex_superset
+    hostname: fedex_superset
+    build:
+      context: .
+      dockerfile: ./superset/Dockerfile
+      args:
+        POSTGRES_USER: $CUBE_POSTGRES_USER
+        POSTGRES_PASSWORD: $CUBE_POSTGRES_PASSWORD
+        POSTGRES_HOST: $CUBE_POSTGRES_HOST
+        POSTGRES_DB: $CUBE_POSTGRES_DB
+        POSTGRES_PORT: $CUBE_POSTGRES_PORT
+        POSTGRES_CONN_NAME: $CUBE_POSTGRES_CONN_NAME
+        SUPERSET_ADMIN: $SUPERSET_ADMIN
+        SUPERSET_PASSWORD: $SUPERSET_PASSWORD
+        SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+    ports:
+      - "8088:8088"
+    command: gunicorn --bind  "0.0.0.0:8088" --access-logfile '-' --error-logfile '-' --workers 1 --worker-class gthread --threads 20 --timeout 60 --limit-request-line 0 --limit-request-field_size 0 "superset.app:create_app()"
+    volumes:
+      - ./transform/target:/app/superset_home/db

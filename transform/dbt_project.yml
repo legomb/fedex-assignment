@@ -1,13 +1,12 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'fedex'
-version: '1.0.0'
+name: "fedex"
+version: "1.0.0"
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'fedex'
+profile: "fedex"
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -20,12 +19,11 @@ macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 vars:
-    "dbt_date:time_zone": "Europe/Amsterdam"
+  "dbt_date:time_zone": "Europe/Amsterdam"
 
-clean-targets:         # directories to be removed by `dbt clean`
+clean-targets: # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
-
 
 seeds:
   +schema: raw
@@ -40,14 +38,15 @@ models:
   fedex:
     # Config indicated by + and applies to all files under models/example/
     clean:
-      +materialized: view
+      +materialized: table
       +schema: clean
-    processing:
-      +materialized: view
-      +schema: processing
-    bi:
-      +materialized: view
-      +schema: bi
+    dwh:
+      common:
+        +schema: dwh_common
+        +materialized: table
+      sales:
+        +schema: dwh_sales
+        +materialized: table
 # tests:
 #   fedex:
 #     +store_failures: true

@@ -1,5 +1,3 @@
-{{ config(materialized='external', location='results/fct_sales.csv') }}
-
 WITH cte_sales_raw AS (
 
 	SELECT * FROM {{ ref('clean_sales') }}
@@ -13,11 +11,12 @@ SELECT
 	{{ dbt_utils.generate_surrogate_key(['store_code']) }} AS store_id,
 	CAST(
 		CONCAT(
-			LPAD(CAST(DATE_PART('year', date) AS VARCHAR), 4, '0'),
-			LPAD(CAST(DATE_PART('month', date) AS VARCHAR), 2, '0'),
-			LPAD(CAST(DATE_PART('day', date) AS VARCHAR), 2, '0')
+			LPAD(CAST(DATE_PART('year', created_timestamp) AS VARCHAR), 4, '0'),
+			LPAD(CAST(DATE_PART('month', created_timestamp) AS VARCHAR), 2, '0'),
+			LPAD(CAST(DATE_PART('day', created_timestamp) AS VARCHAR), 2, '0')
 		) AS INT
 	) AS date_id,
+	created_timestamp,
 	sales_code,
 	quantity_sold,
 	amount

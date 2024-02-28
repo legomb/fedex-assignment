@@ -1,5 +1,3 @@
-{{ config(materialized='external', location='results/dim_date.csv') }}
-
 WITH
 dates_raw AS (
 /* generate dates using the macro from the dbt-utils package */

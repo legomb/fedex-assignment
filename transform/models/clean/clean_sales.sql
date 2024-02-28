@@ -9,8 +9,8 @@ SELECT
 	"ID"::VARCHAR AS sales_code,
 	"ProductID"::VARCHAR AS product_code,
 	"CustomerID"::VARCHAR AS customer_code,
-	"Date"::DATE AS date,
+	"Date"::DATE AS created_timestamp,
 	"StoreID"::VARCHAR AS store_code,
 	"QuantitySold"::INT AS quantity_sold,
-	"Amount" AS amount
+	"Amount"::DECIMAL(19, 4) AS amount
 FROM cte_sales_raw

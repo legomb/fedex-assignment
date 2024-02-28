@@ -1,0 +1,42 @@
+cubes:
+  - name: dim_customers
+    sql_table: fedex_dwh_common.dim_customers
+    data_source: default
+    title: Customers (dim_customers)
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        primary_key: true
+
+      - name: customer_code
+        sql: customer_code
+        type: string
+
+      - name: customer_name
+        sql: customer_name
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: email
+        sql: email
+        type: string
+
+      - name: phone_number
+        sql: phone_number
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

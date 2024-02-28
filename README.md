@@ -6,13 +6,10 @@ This is my submission for the FedEx assignment for Analytics Engineering.
 
 Quick reference:
 
-- `transform/models`: Data models.
-- `transform/results`: Results of the application as .csv files.
-
-### Naming conventions for data models
-
-- natural key columns are suffixed as `code`
-- surrogate key columns are suffixed as `id`
+- `transform/models`: Data transformation models (dbt).
+- `cube/schema`: Semantic Layer models, to be used by BI dashboard apps (Cube.dev)
+- `superset`: Superset (BI dashboards)
+- `docker-compose.yml`: Local environment definition.
 
 ## Running the demo
 
@@ -21,10 +18,13 @@ To run this demo:
 1. Open this repo in VSCode. Open the command palette (Shift+Cmd+P on mac) and select "Dev Containers: Rebuild and Reopen in Container".
 2. Open the command palette (Shift+Cmd+P on mac) and select "Markdown: Open preview to the side" to read this doc.
 3. Open a terminal and run:
+
 ```sh
 task demo:run-full-demo
 ```
 
-To see an overview of the data assets:
+Then:
 
-1. Access the data catalog (dbt docs) by navigating to [http://localhost:8080](http://localhost:8080) from your browser
+- To view and manage BI dashboards, open the local [Superset](https://superset.apache.org/) instance by navigating to [http://localhost:8080/login/](http://localhost:8080/login/) and log in with `admin`, `admin`.
+- To see an overview of the data transformation models and their metadata & lineage, access the local [dbt docs](https://docs.getdbt.com/docs/collaborate/documentation) instance by navigating to [http://localhost:8080](http://localhost:8080) from your browser.
+- To view and manage the semantic model data cubes and views, open the local [cube.dev](https://cube.dev/) instance by navigating to [http://localhost:4000/](http://localhost:4000/).
