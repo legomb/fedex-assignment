@@ -1,0 +1,49 @@
+cubes:
+  - name: fct_popular_styles_categories_per_city
+    sql_table: fedex_dwh_sales.fct_popular_styles_categories_per_city
+    data_source: default
+    title: Popular Product Styles and Categories Per City
+
+    joins:
+      - name: dim_dates
+        relationship: many_to_one
+        sql: "{fct_popular_styles_categories_per_city}.date_id = {dim_dates.id}"
+      - name: dim_products
+        relationship: many_to_one
+        sql: "{fct_popular_styles_categories_per_city}.product_id = {dim_products.id}"
+      - name: dim_stores
+        relationship: many_to_one
+        sql: "{fct_popular_styles_categories_per_city}.store_id = {dim_stores.id}"
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        primary_key: true
+
+      - name: date
+        sql: snapshot_timestamp
+        type: time
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: top_style
+        sql: top_style
+        type: string
+
+      - name: top_category
+        sql: top_category
+        type: string
+
+    measures:
+      - name: top_style_amount
+        sql: top_style_amount
+        description: amt sold for the top style
+        type: sum
+
+      - name: top_category_amount
+        sql: top_category_amount
+        description: amt sold for the top category
+        type: sum
