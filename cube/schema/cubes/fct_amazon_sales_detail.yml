@@ -15,10 +15,6 @@ cubes:
         type: string
         primary_key: true
 
-      - name: date_id
-        sql: date_id
-        type: string
-
       - name: line_item_code
         sql: line_item_code
         type: string

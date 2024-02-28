@@ -15,10 +15,6 @@ cubes:
         type: string
         primary_key: true
 
-      - name: date_id
-        sql: date_id
-        type: string
-
       - name: date
         sql: snapshot_timestamp
         type: time
