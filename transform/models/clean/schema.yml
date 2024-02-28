@@ -101,3 +101,53 @@ models:
         description: Company that manufactures the product
       - name: supplier
         description: Company that supplies the product
+
+  - name: clean_amazon_sale_report
+    description: Clean, valid, type-casted Amazon Sale Report data.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: line_item_code
+        description: Natural Key. Unique identifier for the line item of the sale, as coming from the source system.
+        tests:
+          - unique
+          - not_null
+      - name: order_code
+        description: Natural Key. Unique identifier for the order of the sale, as coming from the source system. An order can include many items.
+        tests:
+          - not_null
+      - name: date
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              name: status_expected_values
+              values: ["Cancelled", "Shipped - Delivered to Buyer", "Shipped", "Pending", "Shipped - Damaged", "Shipped - Returning to Seller", "Shipped - Returned to Seller", "Pending - Waiting for Pick Up", "Shipped - Picked Up", "Shipping", "Shipped - Out for Delivery", "Shipped - Rejected by Buyer", "Shipped - Lost in Transit"]
+      - name: fulfillment
+      - name: sales_channel
+      - name: ship_service_level
+      - name: style
+      - name: sku
+      - name: category
+      - name: size
+        tests:
+          - not_null
+          - accepted_values:
+              name: size_expected_values
+              values: ["Free", "XS", "S", "M", "L", "XL", "XXL", "2XL", "3XL", "4XL", "5XL", "6XL"]
+      - name: asin
+      - name: courier_status
+      - name: quantity
+      - name: currency
+      - name: amount
+      - name: ship_city
+      - name: ship_state
+      - name: ship_postal_code
+      - name: ship_country
+      - name: promotion_ids
+      - name: b2b
+      - name: fulfilled_by
+      - name: unnamed_22

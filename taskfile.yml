@@ -21,7 +21,7 @@ tasks:
   dbt:build:
     desc: Builds dbt models
     cmds:
-      # - rm -f transform/target/dev.duckdb
+      - rm -f transform/target/dev.duckdb
       - task: dbt
         vars: { CLI_ARGS: "build" }
 
@@ -39,3 +39,9 @@ tasks:
       - task: dbt:deps
       - task: dbt:build
       - task: dbt:docs:serve
+
+  dbt:debug:show-test-errors:
+    cmds:
+    - task dbt -- show -s "size_expected_values" --limit 25
+    - task dbt -- show -s "status_expected_values" --limit 25
+    - task dbt -- show -s "unique_clean_amazon_sale_report_order_code" --limit 25

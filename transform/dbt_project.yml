@@ -37,17 +37,21 @@ seeds:
 models:
   fedex:
     # Config indicated by + and applies to all files under models/example/
-    clean:
+    staging:
       +materialized: table
+      +schema: staging
+    clean:
+      +materialized: view
       +schema: clean
     dwh:
       common:
+        +materialized: table
         +schema: dwh_common
-        +materialized: table
       sales:
-        +schema: dwh_sales
         +materialized: table
+        +schema: dwh_sales
 # tests:
+#   +enabled: true
 #   fedex:
 #     +store_failures: true
 #     +schema: test
