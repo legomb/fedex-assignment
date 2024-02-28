@@ -8,7 +8,7 @@ SELECT
 	{{ dbt_utils.generate_surrogate_key(['line_item_code']) }}::VARCHAR AS id,
 	line_item_code::VARCHAR AS line_item_code,
 	order_code::VARCHAR AS order_code,
-	date::DATE AS date,
+	STRPTIME(date, '%m-%d-%y')::DATE AS date,
 	status::VARCHAR AS status,
 	fulfillment::VARCHAR AS fulfillment,
 	sales_channel::VARCHAR AS sales_channel,
