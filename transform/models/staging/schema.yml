@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: staging_amazon_sale_report
+  - name: staging_amazon_sales_line_items
     description: Staging table for Amazon Sales Report data
     columns:
       - name: id

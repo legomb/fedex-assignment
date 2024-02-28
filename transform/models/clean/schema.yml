@@ -102,8 +102,8 @@ models:
       - name: supplier
         description: Company that supplies the product
 
-  - name: clean_amazon_sale_report
-    description: Clean, valid, type-casted Amazon Sale Report data.
+  - name: clean_amazon_sales_line_items
+    description: Clean, valid, type-casted Amazon Sale line items.
     columns:
       - name: id
         description: (Surrogate) primary key for this table

@@ -1,6 +1,6 @@
 WITH cte_staging_amazon_sale_report AS (
 
-	SELECT * FROM {{ ref('staging_amazon_sale_report') }}
+	SELECT * FROM {{ ref('staging_amazon_sales_line_items') }}
 
 )
 
