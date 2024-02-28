@@ -72,3 +72,72 @@ models:
         description: Name of the most popular product category in this city
       - name: top_category_amount
         description: Sales amount for the category in this city
+
+
+  - name: fct_amazon_sales_line_items
+    description: Clean, valid, type-casted Amazon Sale line items.
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        tests:
+          - unique
+          - not_null
+      - name: date_id
+        description: Date dimension ID
+      - name: postcode_id
+        description: Postcode dimension ID
+      - name: line_item_code
+        description: Natural Key. Unique identifier for the line item of the sale, as coming from the source system.
+      - name: order_code
+        description: Natural Key. Unique identifier for the order of the sale, as coming from the source system. An order can include many items.
+      - name: date
+      - name: status
+      - name: fulfillment
+      - name: sales_channel
+      - name: ship_service_level
+      - name: style
+      - name: sku
+      - name: category
+      - name: size
+      - name: asin
+      - name: courier_status
+      - name: quantity
+      - name: currency
+      - name: amount
+      # - name: ship_city
+      # - name: ship_state
+      # - name: ship_postal_code
+      # - name: ship_country
+      - name: promotion_ids
+      - name: b2b
+      - name: fulfilled_by
+      - name: unnamed_22
+        description: |
+          TBD.
+          Mystery column! We do know that it is a boolean.
+          Please refer to the data owner until this is resolved.
+          If you know what it is, please get in touch with the Data Analytics team!
+
+  - name: fct_amazon_popular_styles_categories_per_city
+    description: |
+      Snapshot Fact Table for popular product styles and categories per city, based on sales amount
+    columns:
+      - name: id
+        description: (Surrogate) primary key for this table
+        constraints:
+          - type: not_null
+          - type: unique
+      - name: snapshot_timestamp
+        description: date and time of the sale, to the millisecond
+      - name: date_id
+        description: Date dimension ID
+      - name: city
+        description: Name of the city
+      - name: top_style
+        description: Name of the most popular product style in this city
+      - name: top_style_amount
+        description: Sales amount for the style in this city
+      - name: top_category
+        description: Name of the most popular product category in this city
+      - name: top_category_amount
+        description: Sales amount for the category in this city
