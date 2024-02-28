@@ -115,4 +115,4 @@ cubes:
 
       - name: quantity
         sql: quantity
-        type: number
+        type: sum
