@@ -1,0 +1,38 @@
+cubes:
+  - name: dim_postcodes
+    sql_table: fedex_dwh_common.dim_postcodes
+    data_source: default
+    title: PostCodes
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: string
+        primary_key: true
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: state
+        sql: state
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: postal_code
+        sql: postal_code
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

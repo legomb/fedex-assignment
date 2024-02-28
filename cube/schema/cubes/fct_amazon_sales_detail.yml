@@ -9,6 +9,10 @@ cubes:
         relationship: many_to_one
         sql: "{fct_amazon_sales_line_items}.date_id = {dim_dates.id}"
 
+      - name: dim_postcodes
+        relationship: many_to_one
+        sql: "{fct_amazon_sales_line_items}.postcode_id = {dim_postcodes.id}"
+
     dimensions:
       - name: id
         sql: id
@@ -71,21 +75,21 @@ cubes:
         sql: currency
         type: string
 
-      - name: ship_city
-        sql: ship_city
-        type: string
+      # - name: ship_city
+      #   sql: ship_city
+      #   type: string
 
-      - name: ship_state
-        sql: ship_state
-        type: string
+      # - name: ship_state
+      #   sql: ship_state
+      #   type: string
 
-      - name: ship_postal_code
-        sql: ship_postal_code
-        type: string
+      # - name: ship_postal_code
+      #   sql: ship_postal_code
+      #   type: string
 
-      - name: ship_country
-        sql: ship_country
-        type: string
+      # - name: ship_country
+      #   sql: ship_country
+      #   type: string
 
       - name: promotion_ids
         sql: promotion_ids

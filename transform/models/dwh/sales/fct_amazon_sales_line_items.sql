@@ -13,6 +13,13 @@ SELECT
 			LPAD(CAST(DATE_PART('day', date) AS VARCHAR), 2, '0')
 		) AS INT
 	) AS date_id,
+	{{ dbt_utils.generate_surrogate_key(
+		[
+			'ship_country',
+			'ship_state',
+			'ship_city',
+			'ship_postal_code'
+		]) }} AS postcode_id,
 	line_item_code,
 	order_code,
 	date,
@@ -29,10 +36,6 @@ SELECT
 	quantity,
 	currency,
 	amount,
-	ship_city,
-	ship_state,
-	ship_postal_code,
-	ship_country,
 	promotion_ids,
 	CASE WHEN b2b IS TRUE THEN 'TRUE' ELSE 'FALSE' END AS b2b,
 	fulfilled_by,
