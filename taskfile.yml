@@ -44,4 +44,4 @@ tasks:
     cmds:
     - task dbt -- show -s "size_expected_values" --limit 25
     - task dbt -- show -s "status_expected_values" --limit 25
-    - task dbt -- show -s "unique_clean_amazon_sale_report_order_code" --limit 25
+    - task dbt -- show -s "unique_clean_amazon_sales_line_items_order_code" --limit 25

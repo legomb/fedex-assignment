@@ -1,4 +1,4 @@
-WITH cte_staging_amazon_sale_report AS (
+WITH cte_staging_amazon_sales_line_items AS (
 
 	SELECT * FROM {{ ref('staging_amazon_sales_line_items') }}
 
@@ -31,4 +31,4 @@ SELECT
 	fulfilled_by::VARCHAR AS fulfilled_by,
 	unnamed_22::BOOLEAN AS unnamed_22
 FROM
-	cte_staging_amazon_sale_report
+	cte_staging_amazon_sales_line_items
