@@ -48,5 +48,5 @@ task demo:run-full-demo
 Then:
 
 - To view and manage the semantic model data cubes and views, open the local cube instance by navigating to [http://localhost:4000/](http://localhost:4000/).
-- To view and manage BI dashboards, open the local Superset instance by navigating to [http://localhost:8080/login/](http://localhost:8080/login/) and log in with `admin`, `admin`. It has a connection to cube and you can create your own dashboards, but at the moment there are no readymade dashboards included in this repo.
+- To view and manage BI dashboards, open the local Superset instance by navigating to [http://localhost:8088/login/](http://localhost:8088/login/) and log in with `admin`, `admin`. It has a connection to cube and you can create your own dashboards, but at the moment there are no readymade dashboards included in this repo.
 - To see an overview of the data transformation models and their metadata & lineage, access the local dbt docs instance by navigating to [http://localhost:8080](http://localhost:8080).
