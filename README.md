@@ -19,6 +19,7 @@ It includes a workflow with:
 
 Due to time constraints, the following areas are incomplete/out of scope:
 
+- Proper security handling for production, like not committing the `.env` file, using secrets, etc. (`.env` file is commited for demo purposes.)
 - Superset works and has a connection to cube, so it can be used to create dashboards. But there are no readymade dashboards included in this repo.
 - Devcontainer linters are not configured.
 - Limited data cleansing and testing.
