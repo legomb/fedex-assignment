@@ -20,6 +20,7 @@ Due to time constraints, the following areas are incomplete:
 - Superset works and has a connection to cube, so it can be used to create dashboards. But there are no readymade dashboards included in this repo.
 - Devcontainer linters are not configured.
 - Limited data cleansing and testing.
+- The Pyspark part of this exercise was agreed to be skipped.
 
 ## Quick reference
 
@@ -28,7 +29,6 @@ Due to time constraints, the following areas are incomplete:
 - `cube/schema`: Semantic Layer models, to be used by BI dashboard apps (Cube.dev)
 - `superset`: Superset (BI dashboards)
 - `docker-compose.yml`: Local environment definition.
-- `pyspark_sample/popular_styles_per_city.py`: This is how the `transform/models/dwh/sales/fct_popular_styles_categories_per_city.sql` dbt model would look in pyspark. Due to time constraints, this is a non-working, untested sample.
 - `taskfile.yml`: Available actions, to be used by maintainers and eventually the CI/CD.
 
 ## Requirements
