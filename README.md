@@ -15,9 +15,9 @@ It includes a workflow with:
 - A basic data catalog using [dbt docs](https://docs.getdbt.com/docs/collaborate/documentation)
 - A local development environment using vscode devcontainer, linters, docker compose.
 
-### Notes
+### Out of scope
 
-Due to time constraints, the following areas are incomplete:
+Due to time constraints, the following areas are incomplete/out of scope:
 
 - Superset works and has a connection to cube, so it can be used to create dashboards. But there are no readymade dashboards included in this repo.
 - Devcontainer linters are not configured.
