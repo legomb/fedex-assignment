@@ -25,14 +25,6 @@ tasks:
       - task: dbt
         vars: { CLI_ARGS: "build" }
 
-  env:generate:
-    desc: Generates a local .env file based on the template
-    cmds:
-      - cp .env.template .env
-      - |
-        secret="$(openssl rand -base64 42)"
-        echo "SUPERSET_SECRET_KEY=${secret}" >> .env
-
   dbt:docs:serve:
     desc: generates and serves docs
     cmds:
