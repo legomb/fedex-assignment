@@ -4,6 +4,8 @@
 
 This is my submission for the FedEx Analytics Engineering Assessment.
 
+It features a data pipeline that ingests, cleans, and enriches data based on the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data), and makes the results available for BI.
+
 It includes a workflow with:
 
 - Data transformations using [dbt](https://www.getdbt.com/)
