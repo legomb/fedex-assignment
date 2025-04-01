@@ -6,7 +6,7 @@ This is my submission for the FedEx Analytics Engineering Assignment.
 
 It features a contained environment with a data pipeline that ingests, cleans, and enriches data based on the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data), and makes the results available for BI.
 
-## Components
+### Components
 
 This project includes a workflow with:
 
