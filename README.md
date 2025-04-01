@@ -4,7 +4,25 @@
 
 This is my submission for the FedEx Analytics Engineering Assignment.
 
-It features a contained environment with a data pipeline that ingests, cleans, and enriches data based on the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data), and makes the results available for BI.
+It features a contained environment with a data pipeline that ingests, cleans, and enriches the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data), and makes the results available for BI.
+
+```mermaid
+flowchart LR
+    raw["`Raw data
+    (.csv file)`"]
+    clean["Clean models
+    (dbt)"]
+    enriched["Enriched models
+    (dbt)"]
+    kimball["Kimball models
+    (dbt)"]
+    SemanticLayer["Semantic Layer
+    (Cube.dev)"]
+    BI["BI layer
+    (Apache Superset)"]
+
+    raw --> clean --> enriched --> kimball --> SemanticLayer --> BI
+```
 
 ### Components
 
