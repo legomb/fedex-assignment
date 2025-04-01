@@ -1,12 +1,14 @@
-# Fedex Analytics Engineering Assessment
+# FedEx Analytics Engineering Assignment
 
 ## Overview
 
-This is my submission for the FedEx Analytics Engineering Assessment.
+This is my submission for the FedEx Analytics Engineering Assignment.
 
 It features a contained environment with a data pipeline that ingests, cleans, and enriches data based on the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data), and makes the results available for BI.
 
-It includes a workflow with:
+## Components
+
+This project includes a workflow with:
 
 - Data transformations using [dbt](https://www.getdbt.com/)
 - Data storage using [DuckDB](https://duckdb.org/)
@@ -34,21 +36,23 @@ Due to time constraints, the following areas are incomplete/out of scope:
 - `docker-compose.yml`: Local environment definition.
 - `taskfile.yml`: Available actions, to be used by maintainers and eventually the CI/CD.
 
-## Requirements
+## How to run this demo
+
+### Requirements
 
 - Visual Studio Code
 - Docker
 
-## How to run this demo
+### Instructions
 
-1. Open this repo in VSCode. Open the command palette (Shift+Cmd+P on mac) and select "Dev Containers: Rebuild and Reopen in Container". This will spin up the environment including a devcontainer, cube, and superset.
+1. Open this repo in VSCode. Open the command palette (`Shift+Cmd+P` on mac) and select `Dev Containers: Rebuild and Reopen in Container`. This will spin up the environment including a devcontainer, cube, and superset.
 2. Open a terminal in the devcontainer and run:
 
     ```sh
     task demo:run-full-demo
     ```
-    
+
 3. Then:
-   - To view and manage the semantic model data cubes and views, open the local cube instance by navigating to [http://localhost:4000/](http://localhost:4000/).
-   - To view and manage BI dashboards, open the local Superset instance by navigating to [http://localhost:8088/login/](http://localhost:8088/login/) and log in with `admin`, `admin`. It has a connection to cube and you can create your own dashboards, but at the moment there are no readymade dashboards included in this repo.
-   - To see an overview of the data transformation models and their metadata & lineage, access the local dbt docs instance by navigating to [http://localhost:8080](http://localhost:8080).
+   - To see an overview of the **data transformation models and their metadata & lineage**, access the local dbt docs instance by navigating to [http://localhost:8080](http://localhost:8080).
+   - To view and manage the **semantic model data cubes and views**, open the local cube instance by navigating to [http://localhost:4000/](http://localhost:4000/).
+   - To view and manage **BI dashboards**, open the local Superset instance by navigating to [http://localhost:8088/login/](http://localhost:8088/login/) and log in with `admin`, `admin`. It has a connection to cube and you can create your own dashboards, but at the moment there are no readymade dashboards included in this repo.
