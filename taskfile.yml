@@ -27,7 +27,7 @@ tasks:
   dbt:build:
     desc: Builds dbt models
     cmds:
-      - rm -rf transform/target/dev.duckdb
+      - rm -rf transform/results/dev.duckdb
       - task: dbt
         vars: { CLI_ARGS: "build" }
 
