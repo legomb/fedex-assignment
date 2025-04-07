@@ -3,7 +3,7 @@ version: 2
 models:
 
   - name: clean_sales_line_items
-    description: Clean, valid, deduplicated, type-casted Amazon Sale line items.
+    description: Clean, valid, deduplicated Amazon Sale line items.
     columns:
       - name: id
         description: (Surrogate) primary key for this table
