@@ -3,7 +3,7 @@ version: 2
 models:
 
   - name: staging_sales_line_items
-    description: Staging table for Amazon Sales Report data
+    description: Staging table for Amazon Sales Report data. Applies typecasting and standard naming convention to raw data.
     columns:
       - name: id
         description: |
