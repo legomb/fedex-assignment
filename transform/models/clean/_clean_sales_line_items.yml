@@ -3,7 +3,7 @@ version: 2
 models:
 
   - name: clean_sales_line_items
-    description: Clean, valid, type-casted Amazon Sale line items.
+    description: Clean, valid, deduplicated, type-casted Amazon Sale line items.
     columns:
       - name: id
         description: (Surrogate) primary key for this table
@@ -21,6 +21,7 @@ models:
         description: Natural Key. Unique identifier for the order of the sale, as coming from the source system. An order can include many items.
         data_type: string
         tests:
+          - unique
           - not_null
       - name: date
         description: '{{doc("_doc_raw__amazon_sale_report__date")}}'
