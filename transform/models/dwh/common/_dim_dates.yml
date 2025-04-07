@@ -15,15 +15,3 @@ models:
         description: Date truncated to the first day of the month for this day
       - name: date_year
         description: Date truncated to the first day of the year for this day
-
-  - name: dim_postcodes
-    description: PostCodes dimension table.
-    columns:
-      - name: country
-        description: Country
-      - name: state
-        description: State, if applicable
-      - name: city
-        description: City
-      - name: postal_code
-        description: Postal Code
