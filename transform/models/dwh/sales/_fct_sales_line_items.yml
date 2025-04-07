@@ -7,58 +7,85 @@ models:
     columns:
       - name: id
         description: (Surrogate) primary key for this table
+        data_type: string
         tests:
           - unique
           - not_null
       - name: date_id
         description: Date dimension ID
+        data_type: string
       - name: postcode_id
         description: Postcode dimension ID
+        data_type: string
       - name: line_item_code
         description: Natural Key. Unique identifier for the line item of the sale, as coming from the source system.
+        data_type: integer
       - name: order_code
         description: Natural Key. Unique identifier for the order of the sale, as coming from the source system. An order can include many items.
+        data_type: string
       - name: date
         description: '{{doc("_doc_raw__amazon_sale_report__date")}}'
+        data_type: date
       - name: status
         description: '{{doc("_doc_raw__amazon_sale_report__status")}}'
+        data_type: string
       - name: fulfillment
         description: '{{doc("_doc_raw__amazon_sale_report__fulfilment")}}'
+        data_type: string
       - name: sales_channel
         description: '{{doc("_doc_raw__amazon_sale_report__sales_channel")}}'
+        data_type: string
       - name: ship_service_level
         description: '{{doc("_doc_raw__amazon_sale_report__ship_service_level")}}'
+        data_type: string
       - name: style
         description: '{{doc("_doc_raw__amazon_sale_report__style")}}'
+        data_type: string
       - name: sku
         description: '{{doc("_doc_raw__amazon_sale_report__sku")}}'
+        data_type: string
       - name: category
         description: '{{doc("_doc_raw__amazon_sale_report__category")}}'
+        data_type: string
       - name: size
         description: '{{doc("_doc_raw__amazon_sale_report__size")}}'
+        data_type: string
       - name: asin
         description: '{{doc("_doc_raw__amazon_sale_report__asin")}}'
+        data_type: string
       - name: courier_status
         description: '{{doc("_doc_raw__amazon_sale_report__courier_status")}}'
+        data_type: string
       - name: quantity
         description: '{{doc("_doc_raw__amazon_sale_report__qty")}}'
+        data_type: integer
       - name: currency
         description: '{{doc("_doc_raw__amazon_sale_report__currency")}}'
+        data_type: string
       - name: amount
         description: '{{doc("_doc_raw__amazon_sale_report__amount")}}'
+        data_type: float
       # - name: ship_city
       #   description: '{{doc("_doc_raw__amazon_sale_report__ship_city")}}'
+      #   data_type: string
       # - name: ship_state
       #   description: '{{doc("_doc_raw__amazon_sale_report__ship_state")}}'
+      #   data_type: string
       # - name: ship_postal_code
       #   description: '{{doc("_doc_raw__amazon_sale_report__ship_postal_code")}}'
+      #   data_type: string
       # - name: ship_country
       #   description: '{{doc("_doc_raw__amazon_sale_report__ship_country")}}'
+      #   data_type: string
       - name: promotion_ids
         description: '{{doc("_doc_raw__amazon_sale_report__promotion_ids")}}'
+        data_type: string
       - name: b2b
         description: '{{doc("_doc_raw__amazon_sale_report__b2b")}}'
+        data_type: boolean
       - name: fulfilled_by
         description: '{{doc("_doc_raw__amazon_sale_report__fulfilled_by")}}'
+        data_type: string
       - name: unnamed_22
         description: '{{doc("_doc_raw__amazon_sale_report__unnamed_22")}}'
+        data_type: boolean
