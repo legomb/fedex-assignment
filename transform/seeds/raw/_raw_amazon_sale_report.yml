@@ -16,11 +16,13 @@ seeds:
       - name: "index"
         description: '{{doc("_doc_raw__amazon_sale_report__index")}}'
         tests:
+          - unique
           - not_null
           - dbt_utils.not_empty_string
       - name: "Order ID"
         description: '{{doc("_doc_raw__amazon_sale_report__order_id")}}'
         tests:
+          - unique
           - not_null
           - dbt_utils.not_empty_string
       - name: "Date"
