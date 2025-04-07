@@ -1,0 +1,74 @@
+version: 2
+
+seeds:
+  - name: raw_amazon_sale_report
+    description: |
+      This seed is a download of the [Amazon E-Commerce Sales Dataset from Kaggle](https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data).
+
+      From the source:
+
+      > This dataset provides detailed insights into Amazon sales data, including SKU Code, Design Number, Stock, Category, Size and Color, to help optimize product profitability
+
+    config:
+      meta:
+        owner: sales-team
+    columns:
+      - name: "index"
+        description: '{{doc("_doc_raw__amazon_sale_report__index")}}'
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: "Order ID"
+        description: '{{doc("_doc_raw__amazon_sale_report__order_id")}}'
+      - name: "Date"
+        description: '{{doc("_doc_raw__amazon_sale_report__date")}}'
+      - name: "Status"
+        description: '{{doc("_doc_raw__amazon_sale_report__status")}}'
+      - name: "Fulfilment"
+        description: '{{doc("_doc_raw__amazon_sale_report__fulfilment")}}'
+      - name: "Sales Channel "
+        description: '{{doc("_doc_raw__amazon_sale_report__sales_channel")}}'
+      - name: "ship-service-level"
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_service_level")}}'
+      - name: "Style"
+        description: '{{doc("_doc_raw__amazon_sale_report__style")}}'
+      - name: "SKU"
+        description: '{{doc("_doc_raw__amazon_sale_report__sku")}}'
+      - name: "Category"
+        description: '{{doc("_doc_raw__amazon_sale_report__category")}}'
+      - name: "Size"
+        description: '{{doc("_doc_raw__amazon_sale_report__size")}}'
+      - name: "ASIN"
+        description: '{{doc("_doc_raw__amazon_sale_report__asin")}}'
+      - name: "Courier Status"
+        description: '{{doc("_doc_raw__amazon_sale_report__courier_status")}}'
+      - name: "Qty"
+        description: '{{doc("_doc_raw__amazon_sale_report__qty")}}'
+      - name: "currency"
+        description: '{{doc("_doc_raw__amazon_sale_report__currency")}}'
+      - name: "Amount"
+        description: '{{doc("_doc_raw__amazon_sale_report__amount")}}'
+      - name: "ship-city"
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_city")}}'
+        tags: [pii]
+      - name: "ship-state"
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_state")}}'
+        tags: [pii]
+      - name: "ship-postal-code"
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_postal_code")}}'
+        tags: [pii]
+      - name: "ship-country"
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_country")}}'
+        tags: [pii]
+      - name: "promotion-ids"
+        description: '{{doc("_doc_raw__amazon_sale_report__promotion_ids")}}'
+      - name: "B2B"
+        description: '{{doc("_doc_raw__amazon_sale_report__b2b")}}'
+      - name: "fulfilled-by"
+        description: '{{doc("_doc_raw__amazon_sale_report__fulfilled_by")}}'
+      - name: "Unnamed: 22"
+        description: '{{doc("_doc_raw__amazon_sale_report__unnamed_22")}}'

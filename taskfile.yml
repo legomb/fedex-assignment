@@ -8,7 +8,7 @@ tasks:
 
   dbt:
     desc: Runs dbt
-    dir: ./transform
+    dir: transform
     cmds:
       - dbt {{.CLI_ARGS}}
 
@@ -18,10 +18,16 @@ tasks:
       - task: dbt
         vars: { CLI_ARGS: "deps" }
 
+  dbt:seed:
+    desc: Builds dbt seeds
+    cmds:
+      - task: dbt
+        vars: { CLI_ARGS: "seed" }
+
   dbt:build:
     desc: Builds dbt models
     cmds:
-      - rm -f transform/target/dev.duckdb
+      - rm -rf transform/target/dev.duckdb
       - task: dbt
         vars: { CLI_ARGS: "build" }
 
