@@ -31,6 +31,12 @@ tasks:
       - task: dbt
         vars: { CLI_ARGS: "build" }
 
+  dbt:clean:
+    desc: Cleans dbt
+    cmds:
+      - task: dbt
+        vars: { CLI_ARGS: "clean" }
+
   dbt:docs:serve:
     desc: generates and serves docs
     cmds:
