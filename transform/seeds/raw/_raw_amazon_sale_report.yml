@@ -1,0 +1,41 @@
+version: 2
+
+seeds:
+  - name: raw_amazon_sale_report
+    description: This seed is a 
+    config:
+      meta:
+        owner: sales-team
+    columns:
+      - name: "index"
+        description: '{{doc("_doc_raw__amazon_sale_report__index")}}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string
+      - name: "Order ID"
+        description: '{{doc("_doc_raw__amazon_sale_report__order_id")}}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string
+      - name: "Date"
+      - name: "Status"
+      - name: "Fulfilment"
+      - name: "Sales Channel "
+      - name: "ship-service-level"
+      - name: "Style"
+      - name: "SKU"
+      - name: "Category"
+      - name: "Size"
+      - name: "ASIN"
+      - name: "Courier Status"
+      - name: "Qty"
+      - name: "currency"
+      - name: "Amount"
+      - name: "ship-city"
+      - name: "ship-state"
+      - name: "ship-postal-code"
+      - name: "ship-country"
+      - name: "promotion-ids"
+      - name: "B2B"
+      - name: "fulfilled-by"
+      - name: "Unnamed: 22"
