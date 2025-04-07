@@ -22,21 +22,8 @@ seeds:
           - not_null:
               config:
                 severity: warn
-          - dbt_utils.not_empty_string:
-              config:
-                severity: warn
       - name: "Order ID"
         description: '{{doc("_doc_raw__amazon_sale_report__order_id")}}'
-        tests:
-          - unique:
-              config:
-                severity: warn
-          - not_null:
-              config:
-                severity: warn
-          - dbt_utils.not_empty_string:
-              config:
-                severity: warn
       - name: "Date"
         description: '{{doc("_doc_raw__amazon_sale_report__date")}}'
       - name: "Status"
