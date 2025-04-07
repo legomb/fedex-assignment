@@ -141,5 +141,8 @@ Business to business sale. (Boolean)
 <!--- NEXT DOC BLOCK -->
 
 {% docs _doc_raw__amazon_sale_report__unnamed_22 %}
-
+TBD.
+Mystery column! We do know that it is a boolean.
+Please refer to the data owner until this is resolved.
+If you know what it is, please get in touch with the Data Analytics team!
 {% enddocs %}

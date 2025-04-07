@@ -19,29 +19,46 @@ models:
       - name: order_code
         description: Natural Key. Unique identifier for the order of the sale, as coming from the source system. An order can include many items.
       - name: date
+        description: '{{doc("_doc_raw__amazon_sale_report__date")}}'
       - name: status
+        description: '{{doc("_doc_raw__amazon_sale_report__status")}}'
       - name: fulfillment
+        description: '{{doc("_doc_raw__amazon_sale_report__fulfilment")}}'
       - name: sales_channel
+        description: '{{doc("_doc_raw__amazon_sale_report__sales_channel")}}'
       - name: ship_service_level
+        description: '{{doc("_doc_raw__amazon_sale_report__ship_service_level")}}'
       - name: style
+        description: '{{doc("_doc_raw__amazon_sale_report__style")}}'
       - name: sku
+        description: '{{doc("_doc_raw__amazon_sale_report__sku")}}'
       - name: category
+        description: '{{doc("_doc_raw__amazon_sale_report__category")}}'
       - name: size
+        description: '{{doc("_doc_raw__amazon_sale_report__size")}}'
       - name: asin
+        description: '{{doc("_doc_raw__amazon_sale_report__asin")}}'
       - name: courier_status
+        description: '{{doc("_doc_raw__amazon_sale_report__courier_status")}}'
       - name: quantity
+        description: '{{doc("_doc_raw__amazon_sale_report__qty")}}'
       - name: currency
+        description: '{{doc("_doc_raw__amazon_sale_report__currency")}}'
       - name: amount
+        description: '{{doc("_doc_raw__amazon_sale_report__amount")}}'
       # - name: ship_city
+      #   description: '{{doc("_doc_raw__amazon_sale_report__ship_city")}}'
       # - name: ship_state
+      #   description: '{{doc("_doc_raw__amazon_sale_report__ship_state")}}'
       # - name: ship_postal_code
+      #   description: '{{doc("_doc_raw__amazon_sale_report__ship_postal_code")}}'
       # - name: ship_country
+      #   description: '{{doc("_doc_raw__amazon_sale_report__ship_country")}}'
       - name: promotion_ids
+        description: '{{doc("_doc_raw__amazon_sale_report__promotion_ids")}}'
       - name: b2b
+        description: '{{doc("_doc_raw__amazon_sale_report__b2b")}}'
       - name: fulfilled_by
+        description: '{{doc("_doc_raw__amazon_sale_report__fulfilled_by")}}'
       - name: unnamed_22
-        description: |
-          TBD.
-          Mystery column! We do know that it is a boolean.
-          Please refer to the data owner until this is resolved.
-          If you know what it is, please get in touch with the Data Analytics team!
+        description: '{{doc("_doc_raw__amazon_sale_report__unnamed_22")}}'
