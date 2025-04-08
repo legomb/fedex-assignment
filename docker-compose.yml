@@ -16,6 +16,14 @@ services:
     container_name: fedex_cube
     hostname: fedex_cube
     image: cubejs/cube:latest
+    depends_on:
+      - devcontainer
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /cube/data/dev.duckdb"]
+      start_period: 10s
+      interval: 10s
+      timeout: 300s
+      retries: 30
     ports:
       - 4000:4000
       - 15432:15432
