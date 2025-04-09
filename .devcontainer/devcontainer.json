@@ -17,7 +17,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip install --upgrade pip && pip3 install dbt-duckdb sqlfluff sqlfluff-templater-dbt",
+	// "postCreateCommand": "task demo:run-full-demo",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// pip install dbt-duckdb
