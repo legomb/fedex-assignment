@@ -3,5 +3,5 @@ fedex:
   outputs:
     dev:
       type: duckdb
-      path: 'target/dev.duckdb'
+      path: 'results/dev.duckdb'
       schema: fedex

@@ -16,19 +16,27 @@ services:
     container_name: fedex_cube
     hostname: fedex_cube
     image: cubejs/cube:latest
+    depends_on:
+      - devcontainer
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /cube/data/dev.duckdb"]
+      start_period: 10s
+      interval: 10s
+      timeout: 300s
+      retries: 30
     ports:
       - 4000:4000
       - 15432:15432
       - 3306:3306
     environment:
       - CUBEJS_DEV_MODE=true
-      # - CUBEJS_DB_DUCKDB_SCHEMA=fedex_dwh_common
       - CUBEJS_DB_TYPE=duckdb
-      - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/conf/dev.duckdb
+      - CUBEJS_DB_DUCKDB_DATABASE_PATH=/cube/data/dev.duckdb
     volumes:
-      - ./cube/tmp:/cube/conf
       - ./cube/schema:/cube/conf/schema
-      - ./transform/target/dev.duckdb:/cube/conf/dev.duckdb
+      - type: bind
+        source: ./transform/results
+        target: /cube/data
 
   superset:
     container_name: fedex_superset
@@ -52,4 +60,4 @@ services:
       - "8088:8088"
     command: gunicorn --bind  "0.0.0.0:8088" --access-logfile '-' --error-logfile '-' --workers 1 --worker-class gthread --threads 20 --timeout 60 --limit-request-line 0 --limit-request-field_size 0 "superset.app:create_app()"
     volumes:
-      - ./transform/target:/app/superset_home/db
+      - ./transform/results:/app/superset_home/db
